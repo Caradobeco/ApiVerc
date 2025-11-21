@@ -1,17 +1,22 @@
-import express from 'express'
+// Use "type: commonjs" in package.json to use CommonJS modules
 
-const app = express()
+const express = require('express');
 
-app.get('/', (_req, res) => {
-  res.send('Hello Express!')
-})
+const app = express();
 
-app.get('/api/users/:id', (_req, res) => {
-  res.json({ id: _req.params.id })
-})
+const port = 3000;
 
-app.get('/api/posts/:postId/comments/:commentId', (_req, res) => {
-  res.json({ postId: _req.params.postId, commentId: _req.params.commentId })
-})
+ // Define your routes
 
-export default app
+app.get('/', (req, res) => {
+
+  res.json({ message: 'Hello from Express on Vercel!' });
+
+});
+
+app.listen(port, () => {
+
+  console.log(`Example app listening on port ${port}`);
+
+});
+
